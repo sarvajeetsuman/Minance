@@ -36,20 +36,23 @@ def find_date(year):
 
 def find_leap_year(year):
     """ Finds Closest Leap Year"""
-    if year % 400 == 0:
-        year = year+4
-        print("year {} is a leap year".format(year))
-        print(find_date(year))
+    if year%100==0 and year%400 != 0:
+        year1 = year+4
+        year2 = year-4
+        print("year {} is a leap year".format(year1))
+        print("year {} is a leap year".format(year2))
+        print(find_date(year1))
+        print(find_date(year2))
     else:
         if year%4 >2:
             year = year + (4-year%4)
-            if year %400 == 0:
+            if year%100==0 and year%400 != 0:
                 year = year - 4
             print("year {} is a leap year".format(year))
             print(find_date(year))
         elif year%4 < 2:
             year = year - (year%4)
-            if year % 400 == 0:
+            if year%100==0 and year%400 != 0:
                 year = year + 4
             print("year {} is a leap year".format(year))
             print(find_date(year))
@@ -58,9 +61,9 @@ def find_leap_year(year):
             flag2 = False
             year1 = year - 2
             year2 = year + 2
-            if year1 % 400 == 0:
+            if year%100==0 and year%400 != 0:
                 flag1 = True
-            if year2 % 400 == 0:
+            if year%100==0 and year%400 != 0:
                 flag2 = True 
             if flag1 == False and flag2 == False:
                 print("Leap year is equidistant from given year")
@@ -76,16 +79,16 @@ def find_leap_year(year):
 
 def check_leap_year(year):
     """ Checks Leap Year"""
-    if year%400 != 0:
+    if year%100==0 and year%400 != 0:
+        print("year {} is not a leap year".format(year))
+        find_leap_year(year)
+    else:
         if year%4 == 0:
             print("year {} is leap year".format(year))
             print(find_date(year))
         else:
             print("year {} is not a leap year".format(year))
             find_leap_year(year)
-    else:
-        print("year {} is not a leap year".format(year))
-        find_leap_year(year)
 
 
 
