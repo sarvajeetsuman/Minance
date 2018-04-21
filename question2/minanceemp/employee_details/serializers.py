@@ -8,5 +8,14 @@ class EmployeeProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.EmployeeProfile
-        fields = ('employee_id', 'first_name', 'last_name', 'device_id')
+        fields = ('employee_id', 'first_name', 'last_name')
         
+
+class EmployeeDeviceSerializer(serializers.ModelSerializer):
+    """
+    Serializer used with EmployeeDevice Model
+    """
+
+    class Meta:
+        model = models.EmployeesDevice
+        fields = ('employee_id', 'device_id')

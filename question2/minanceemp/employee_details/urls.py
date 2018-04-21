@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('employee-profile', views.EmployeeProfileViewSet)
+router.register('employee-device', views.EmployeeDeviceViewSet)
 urlpatterns = [
     url(r'', include(router.urls)),
     url(r'send-sms-to-employee', views.send_sms_to_employee, name="send_sms_to_employee"),

@@ -20,6 +20,18 @@ class EmployeeProfileViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter, )
     search_fields = ('first_name', 'employee_id', )
 
+
+class EmployeeDeviceViewSet(viewsets.ModelViewSet):
+    """
+    Handles creating reading updating and deleting employee profiles
+    """
+
+    serializer_class = serializers.EmployeeDeviceSerializer
+    queryset = models.EmployeesDevice.objects.all()
+    filter_backends = (filters.SearchFilter, )
+    search_fields = ('device_id' )
+
+
 @api_view(['POST'])
 def send_sms_to_employee(request):
     """
